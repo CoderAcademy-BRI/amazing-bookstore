@@ -1,0 +1,20 @@
+<h2>Create a new book</h2>
+
+<%= form_for [:author, @book] do |f| %>
+  <p>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  </p>
+  <p>
+  <%= f.label :url_image %>
+  <%= f.text_field :url_image %>
+  </p>
+  <p>
+    <%= f.label :author_id %>
+    <%= f.select :author_id, options_from_collection_for_select(@authors, :id, :name, @book.author_id)  %>
+  </p>
+  <p>
+    <%= f.submit "Create book" %>
+    </p>
+
+<% end %>

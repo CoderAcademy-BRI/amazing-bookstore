@@ -1,0 +1,15 @@
+<div class="author">
+<%= image_tag @author.url_image, width: 64 %>
+<h2> <%= @author.name %> </h2>
+  <p> There are <%= pluralize @author.books.count, "book" %> by <%= @author.name %></p>
+  <ul>
+    <% @author.books.each do |book|  %>
+      <li><%= book.title %></li>
+      <% end %>
+  </ul>
+</div>
+
+
+<div>
+  <%= link_to "Add a book by #{@author.name}", new_author_book_path(@author.id) %>
+  </div>
