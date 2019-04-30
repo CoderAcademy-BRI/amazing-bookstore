@@ -23,7 +23,7 @@
 
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-var stripe = Stripe('pk_test_WVP5YfTxK4WkLCOamL5Zy8Fp00WiNxckt4');
+var stripe = Stripe(''); // Add your Stripe test publishable key in here https://dashboard.stripe.com/account/apikeys
 
 function goToCheckout() {
   stripe.redirectToCheckout({

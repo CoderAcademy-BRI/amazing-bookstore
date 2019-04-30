@@ -3,9 +3,7 @@ class OrdersController < ApplicationController
     the_book_id = params[:book_id]
     @book = Book.find(the_book_id)
 
-    Stripe.api_key = 'sk_test_pxd9AQJuQrOgGS3SLQj9ZxaD00oSsPY4rj'
-
-    
+    Stripe.api_key = '' # Add your Stripe test secret key here https://dashboard.stripe.com/account/apikeys
 
     @stripe_checkout_session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
