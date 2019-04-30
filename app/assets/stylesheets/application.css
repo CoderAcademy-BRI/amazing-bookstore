@@ -46,3 +46,11 @@ footer li {
   display: inline;
   padding: 0 15px;
 }
+
+.primary_button {
+  background: blue;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 2px 5px;
+}
