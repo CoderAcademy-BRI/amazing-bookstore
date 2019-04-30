@@ -5,7 +5,8 @@
   <ul>
     <% @author.books.each do |book|  %>
       <li><%= book.title %>
-      <%= link_to "Buy now for #{number_to_currency(book.price)}", new_order_path(book_id: book.id), class: "primary_button" %>
+      <%= link_to "Buy now for #{number_to_currency(book.price)}", 
+                    new_order_path(book_id: book.id), class: "primary_button" %>
       </li>
       <% end %>
   </ul>

@@ -1,5 +1,5 @@
 <h2>Your order</h2>
-<%= @book.title %>
+
 <table>
 <tr>
   <th>Title</th>
@@ -7,9 +7,34 @@
   <th>Price</th>
 </tr>
 <tr>
-  <td>Title goes here</td>
-  <td>Author goes here</td>
-  <td>Price goes here</td>
+  <td><%= @book.title %></td>
+  <td><%= @book.author.name %></td>
+  <td><%= number_to_currency(@book.price) %></td>
 </tr>
-
+<tr>
+  <th colspan="2">Total</th>
+  <td><%= number_to_currency @book.price %></td>
+</tr>
 </table>
+
+<p>
+  <button>Checkout now</button>
+</p>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+var stripe = Stripe('pk_test_WVP5YfTxK4WkLCOamL5Zy8Fp00WiNxckt4');
+
+function goToCheckout() {
+  stripe.redirectToCheckout({
+    sessionId: '<%= @stripe_checkout_session.id %>',
+  }).then(function (result) {
+    // If `redirectToCheckout` fails due to a browser or network
+    // error, display the localized error message to your customer
+    // using `result.error.message`.
+  });
+}
+
+var button = document.querySelector('button');
+button.addEventListener('click', goToCheckout);
+</script>

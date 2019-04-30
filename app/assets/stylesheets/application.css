@@ -54,3 +54,11 @@ footer li {
   text-decoration: none;
   padding: 2px 5px;
 }
+
+table {
+  width: 100%;
+}
+
+table tr td:last-child {
+  text-align: right;
+}
